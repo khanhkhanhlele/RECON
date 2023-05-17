@@ -12,8 +12,6 @@ import torch.utils.data
 import torch.optim as optim
 import torch.nn as nn
 
-import sys
-sys.path.append('./.RECON')
 
 from utils.common import make_exp_and_log_dirs, set_random_seed
 
