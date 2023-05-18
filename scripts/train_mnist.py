@@ -12,8 +12,8 @@ import torch.utils.data
 import torch.optim as optim
 import torch.nn as nn
 
-import os
-print(os.path.abspath())
+import sys
+sys.path.extend(['../'])
 from utils.common import make_exp_and_log_dirs, set_random_seed
 
 from utils.logger import get_root_logger, init_wandb_logger, MessageLogger, \
