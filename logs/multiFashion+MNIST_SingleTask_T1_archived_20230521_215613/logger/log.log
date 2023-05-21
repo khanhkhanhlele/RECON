@@ -1,0 +1,7 @@
+2023-05-21 21:55:44,251 INFO: 
+    RECON: REDUCING CONFLICTING GRADIENTS FROM THE ROOT FOR MULTI-TASK LEARNING
+    
+Version Information: 
+	Recon: 1.0.0
+	PyTorch: 1.12.1+cpu
+	TorchVision: 0.13.1+cpu
