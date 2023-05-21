@@ -1,5 +1,3 @@
-from utils import make_exp_and_log_dirs, set_random_seed
-
 import argparse
 import math
 
@@ -15,6 +13,7 @@ import torch.optim as optim
 import torch.nn as nn
 
 
+from utils import make_exp_and_log_dirs, set_random_seed
 
 from utils.logger import get_root_logger, init_wandb_logger, MessageLogger, \
     init_tb_logger, get_env_info, AvgTimer
