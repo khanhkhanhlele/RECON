@@ -77,10 +77,10 @@ def create_train_val_dataloader(opt, logger):
     with open(opt.dataroot, 'rb') as f:
         trainX, trainLabel, testX, testLabel = pickle.load(f)
 
-    trainX = torch.from_numpy(trainX.reshape(120000,1,36,36)).float()
-    trainLabel = torch.from_numpy(trainLabel).long()
-    testX = torch.from_numpy(testX.reshape(20000,1,36,36)).float()
-    testLabel = torch.from_numpy(testLabel).long()
+    trainX = torch.from_numpy(trainX.reshape(120000,1,36,36)).float().cuda()
+    trainLabel = torch.from_numpy(trainLabel).long().cuda()
+    testX = torch.from_numpy(testX.reshape(20000,1,36,36)).float().cuda()
+    testLabel = torch.from_numpy(testLabel).long().cuda()
 
     train_set = torch.utils.data.TensorDataset(trainX, trainLabel)
 
