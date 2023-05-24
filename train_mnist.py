@@ -155,7 +155,7 @@ if __name__ == '__main__':
     logger = get_root_logger(logger_name='recon', log_level=logging.INFO, log_file=log_file)
     logger.info(get_env_info())
     # initialize wandb logger
-    init_wandb_logger(opt)
+    #init_wandb_logger(opt)
     # initialize tensorboard logger
     tb_logger = init_tb_logger(log_dir=osp.join(tb_log_path, f"tb_log.log"))
 
@@ -235,7 +235,8 @@ if __name__ == '__main__':
                 log_vars.update(metric_log)
                 msg_logger(log_vars)
                 # upload log to wandb
-                wandb.log(metric_log, step=current_iter)
+                #wandb.log(metric_log, step=current_iter)
+                print(metric_log, step=current_iter)
 
         scheduler.step()
 
@@ -262,6 +263,7 @@ if __name__ == '__main__':
             log_vars.update(val_metric_log)
             msg_logger(log_vars)
             wandb.log(val_metric_log, step=current_iter)
+            print(val_metric_log, step=current_iter)
 
         reset_metric_map(tr_metric_map, opt.tasks)
         reset_metric_map(te_metric_map, opt.tasks)
