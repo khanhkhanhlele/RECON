@@ -236,7 +236,7 @@ if __name__ == '__main__':
                 msg_logger(log_vars)
                 # upload log to wandb
                 #wandb.log(metric_log, step=current_iter)
-                print(metric_log, step=current_iter)
+                print(metric_log)
 
         scheduler.step()
 
@@ -262,8 +262,8 @@ if __name__ == '__main__':
             val_metric_log = avg_metric(te_metric_map, opt.tasks)
             log_vars.update(val_metric_log)
             msg_logger(log_vars)
-            wandb.log(val_metric_log, step=current_iter)
-            print(val_metric_log, step=current_iter)
+            #wandb.log(val_metric_log, step=current_iter)
+            print(val_metric_log)
 
         reset_metric_map(tr_metric_map, opt.tasks)
         reset_metric_map(te_metric_map, opt.tasks)
