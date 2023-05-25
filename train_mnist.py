@@ -155,6 +155,7 @@ if __name__ == '__main__':
     logger = get_root_logger(logger_name='recon', log_level=logging.INFO, log_file=log_file)
     logger.info(get_env_info())
     # initialize wandb logger
+    wandb.init(anonymous="must")
     #init_wandb_logger(opt)
     # initialize tensorboard logger
     tb_logger = init_tb_logger(log_dir=osp.join(tb_log_path, f"tb_log.log"))
