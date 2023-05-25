@@ -153,7 +153,7 @@ if __name__ == '__main__':
     exp_path, log_path, tb_log_path = make_exp_and_log_dirs(opt)
     log_file = osp.join(log_path, f"log.log")
     logger = get_root_logger(logger_name='recon', log_level=logging.INFO, log_file=log_file)
-    logger.info(get_env_info())
+    #logger.info(get_env_info())
     # initialize wandb logger
     #init_wandb_logger(opt)
     # initialize tensorboard logger
@@ -233,7 +233,10 @@ if __name__ == '__main__':
                 log_vars.update({'time': iter_timer.get_avg_time(), 'data_time': data_timer.get_avg_time()})
                 # update
                 log_vars.update(metric_log)
-                msg_logger(log_vars)
+                
+                print(log_vars)
+                ProgressBar.prog(current_iter, len(train_loader), epoch, 1)
+                #msg_logger(log_vars)
                 # upload log to wandb
                 #wandb.log(metric_log, step=current_iter)
                 #print(metric_log)
