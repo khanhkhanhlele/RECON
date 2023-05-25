@@ -258,7 +258,7 @@ if __name__ == '__main__':
                     for metric in te_metric_map[task]:
                         log = metric(output_info)
 
-            logger.info('Evaluation')
+            #logger.info('Evaluation')
             log_vars = {'epoch': epoch, 'iter': current_iter}
             val_metric_log = avg_metric(te_metric_map, opt.tasks)
             log_vars.update(val_metric_log)
