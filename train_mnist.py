@@ -265,6 +265,7 @@ if __name__ == '__main__':
             msg_logger(log_vars)
             #wandb.log(val_metric_log, step=current_iter)
             #print(val_metric_log)
+            
 
         reset_metric_map(tr_metric_map, opt.tasks)
         reset_metric_map(te_metric_map, opt.tasks)

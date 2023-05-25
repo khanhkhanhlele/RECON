@@ -83,7 +83,7 @@ class MessageLogger():
         current_iter = log_vars.pop('iter')
         # lrs = log_vars.pop('lrs')
 
-        message = (f'[{self.exp_name[:5]}..][epoch:{epoch:3d}, iter:{current_iter:8,d}]')
+        message = (f'\r[{self.exp_name[:5]}..][epoch:{epoch:3d}, iter:{current_iter:8,d}]')
         # for v in lrs:
         #     message += f'{v:.3e},'
         # message += ')] '
@@ -102,15 +102,14 @@ class MessageLogger():
 
         # other items, especially losses
         for k, v in log_vars.items():
-            message += f'{k}: {v:.4f} '
+            message += f'{k}: {v:.4f}'
             # tensorboard logger
             # if self.use_tb_logger and 'debug' not in self.exp_name:
             if k.startswith('l_'):
                 self.tb_logger.add_scalar(f'losses/{k}', v, current_iter)
             else:
                 self.tb_logger.add_scalar(k, v, current_iter)
-
-        self.logger.info(message)
+        self.logger.info(message,end = '')
 
 def dict2str(opt, indent_level=1):
     """dict to string for printing options.
