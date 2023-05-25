@@ -109,7 +109,7 @@ class MessageLogger():
                 self.tb_logger.add_scalar(f'losses/{k}', v, current_iter)
             else:
                 self.tb_logger.add_scalar(k, v, current_iter)
-        self.logger.info(message,end = '')
+        print(message,end = '')
 
 def dict2str(opt, indent_level=1):
     """dict to string for printing options.
