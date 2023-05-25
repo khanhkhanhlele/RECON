@@ -203,6 +203,7 @@ if __name__ == '__main__':
         model.train()
 
         for k, data in enumerate(train_loader):
+            max_iter = len(train_loader)
             data_timer.record()
             current_iter += 1
 
@@ -235,7 +236,7 @@ if __name__ == '__main__':
                 log_vars.update(metric_log)
                 
                 print(log_vars)
-                ProgressBar.prog(current_iter, len(train_loader), epoch, 1)
+                ProgressBar.prog(current_iter, log_vars, max_iter = max_iter)
                 #msg_logger(log_vars)
                 # upload log to wandb
                 #wandb.log(metric_log, step=current_iter)
