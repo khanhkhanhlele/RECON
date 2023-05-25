@@ -11,7 +11,6 @@ import torch
 import torch.utils.data
 import torch.optim as optim
 import torch.nn as nn
-from utils.status import ProgressBar
 
 from utils import make_exp_and_log_dirs, set_random_seed
 
@@ -235,9 +234,7 @@ if __name__ == '__main__':
                 # update
                 log_vars.update(metric_log)
                 
-                print(log_vars)
-                ProgressBar.prog(current_iter, log_vars, max_iter = max_iter)
-                #msg_logger(log_vars)
+                msg_logger(log_vars)
                 # upload log to wandb
                 #wandb.log(metric_log, step=current_iter)
                 #print(metric_log)
