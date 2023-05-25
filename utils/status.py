@@ -5,7 +5,7 @@
 
 import sys
 from datetime import datetime
-from time import time
+import time
 from typing import Union
 
 
