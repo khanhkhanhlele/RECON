@@ -1,7 +1,7 @@
 import argparse
 import math
 
-import wandb
+#import wandb
 import pickle
 import logging
 import time
@@ -155,7 +155,6 @@ if __name__ == '__main__':
     logger = get_root_logger(logger_name='recon', log_level=logging.INFO, log_file=log_file)
     logger.info(get_env_info())
     # initialize wandb logger
-    wandb.init(anonymous="must")
     #init_wandb_logger(opt)
     # initialize tensorboard logger
     tb_logger = init_tb_logger(log_dir=osp.join(tb_log_path, f"tb_log.log"))
@@ -263,7 +262,7 @@ if __name__ == '__main__':
             val_metric_log = avg_metric(te_metric_map, opt.tasks)
             log_vars.update(val_metric_log)
             msg_logger(log_vars)
-            wandb.log(val_metric_log, step=current_iter)
+            #wandb.log(val_metric_log, step=current_iter)
             #print(val_metric_log)
 
         reset_metric_map(tr_metric_map, opt.tasks)
