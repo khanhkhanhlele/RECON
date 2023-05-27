@@ -274,5 +274,5 @@ if __name__ == '__main__':
         if current_iter == total_iters:
             logger.info('Saving models and training states.')
             model.save(exp_path, opt.name, epoch, current_iter, opt.seed)
-
-    # logger.info(f'Training finished. Total training time: {time.time() - start_time:.2f}s')
+        logger.infro(' ')
+    logger.info(f'Training finished. Total training time: {time.time() - start_time:.2f}s')

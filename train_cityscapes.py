@@ -1,7 +1,7 @@
 import argparse
 import math
 import random
-import wandb
+#import wandb
 import numpy as np
 import logging
 import time
@@ -161,7 +161,7 @@ if __name__ == '__main__':
     logger = get_root_logger(logger_name='recon', log_level=logging.INFO, log_file=log_file)
     logger.info(get_env_info())
     # initialize wandb logger
-    init_wandb_logger(opt)
+    #init_wandb_logger(opt)
     # initialize tensorboard logger
     tb_logger = init_tb_logger(log_dir=osp.join(tb_log_path, f"tb_log.log"))
 
@@ -245,14 +245,14 @@ if __name__ == '__main__':
                 log_vars.update(metric_log)
                 msg_logger(log_vars)
                 # upload log to wandb
-                wandb.log(metric_log, step=current_iter)
+                #wandb.log(metric_log, step=current_iter)
 
         # log average training metric
         log_vars = {'epoch': epoch, 'iter': current_iter}
         train_metric_log = avg_metric(metric_map=tr_metric_map, tasks_list=opt.tasks)
         log_vars.update(train_metric_log)
         msg_logger(log_vars)
-        wandb.log(train_metric_log, step=epoch)
+        #wandb.log(train_metric_log, step=epoch)
 
         scheduler.step()
 
@@ -278,13 +278,13 @@ if __name__ == '__main__':
                     for metric in te_metric_map[task]:
                         log = metric(output_info)
 
-            logger.info('Evaluation')
+            #logger.info('Evaluation')
             log_vars = {'epoch': epoch, 'iter': current_iter}
             val_metric_log = avg_metric(metric_map=te_metric_map, tasks_list=opt.tasks)
             log_vars.update(val_metric_log)
             msg_logger(log_vars)
-            wandb.log(val_metric_log, step=epoch)
-
+            #wandb.log(val_metric_log, step=epoch)
+            
         # reset metric
         reset_metric_map(tr_metric_map, opt.tasks)
         reset_metric_map(te_metric_map, opt.tasks)
