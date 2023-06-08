@@ -48,7 +48,8 @@ class Recon(BaseModel):
                 layers_dict[name] = [i]
             else:
                 layers_dict[name].append(i)
-
+        print('######')
+        print(layers_dict)
         return layers_dict
 
     def cagrad(self, grads, alpha=0.5, rescale=1):
