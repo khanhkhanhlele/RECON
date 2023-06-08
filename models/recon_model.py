@@ -20,6 +20,7 @@ class Recon(BaseModel):
         # if self.sub_method == 'cagrad', we need set alpha
         self.alpha = opt.alpha
         self.layers_dict = self._get_layers()
+        print(self.layers_dict)
         self.layers_name = list(self.layers_dict.keys())
 
         # saved the all cos<g_i, g_j>
