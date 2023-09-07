@@ -36,7 +36,8 @@ class Recon(BaseModel):
         """
 
         shared_parameters = self.network.shared_parameters()
-
+        print('x'*20)
+        print(shared_parameters)
         name_list = list(shared_parameters.keys())
         layers_dict = {}
         for i, name in enumerate(name_list):
